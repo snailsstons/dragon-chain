@@ -8,7 +8,7 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
 
-    <title>SnailsStons | Intelligence Gallery</title>
+    <title>Snails Stons | Intelligence Gallery</title>
     
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#000000">
@@ -24,11 +24,12 @@
 
     <script>
         // --- DEINE PLAYLISTS (KATEGORIEN) ---
-        const playlistMap = [
+        // Playlists werden aus playlists.js geladen
+        window.playlistMap = window.playlistMap || [
             { titel: "Gandia und Umgebung", hefte: [18, 19, 20] },
-            { titel: "Die Borgia Route", hefte: [3] },
+            { titel: "Die Borgia Route", hefte: [] },
             { titel: "Valencia Vibes", hefte: [15] },
-            { titel: "Shorts", hefte: [23] },
+            { titel: "Shorts", hefte: [23, 24, 25] },
             { titel: "🖇️ Experimente, Schmierheft", hefte: [0] },
             { titel: "⭐ Members Only", hefte: [], membersOnly: true }
         ];
@@ -36,53 +37,58 @@
         window.hasRendered = false;
         window.activeFilter = null;
 
-        function ghConfig() {
-            return {
-                repo: localStorage.getItem('gh_repo'),
-                branch: localStorage.getItem('gh_branch') || 'main',
-                token: localStorage.getItem('gh_token')
-            };
-        }
-
-        async function loadHefteFromGitHub() {
-            const { repo, branch, token } = ghConfig();
-            if (!repo || !token) return false;
-            try {
-                const res = await fetch(`https://api.github.com/repos/${repo}/contents/data?ref=${branch}`, {
-                    headers: { Authorization: `token ${token}`, Accept: 'application/vnd.github.v3+json' }
-                });
-                if (!res.ok) return false;
-                const files = await res.json();
-                const heftFiles = files.filter(f => f.name.match(/^heft\d+\.js$/));
-                for (const f of heftFiles) {
-                    const code = await (await fetch(f.download_url)).text();
-                    try { new Function('hefte', code)(window.hefte); } catch(e) {}
-                }
-                return true;
-            } catch(e) { return false; }
-        }
-
-        async function loadHefteFallback() {
+        async function initGallery() {
+            // playlists.js laden
+            await new Promise(resolve => {
+                const s = document.createElement('script');
+                s.src = `playlists.js?v=` + Date.now();
+                s.onload = s.onerror = resolve;
+                document.head.appendChild(s);
+            });
+            // Hefte laden
             const ids = [0, ...Array.from({length: 30}, (_, i) => i + 1)];
             let loaded = 0;
-            return new Promise(resolve => {
+            await new Promise(resolve => {
                 ids.forEach(id => {
                     const s = document.createElement('script');
                     s.src = `data/heft${id}.js?v=` + Date.now();
                     s.onload = s.onerror = () => { if (++loaded >= ids.length) resolve(); };
                     document.head.appendChild(s);
                 });
-                setTimeout(resolve, 2000);
+                setTimeout(resolve, 3000);
             });
-        }
-
-        async function initGallery() {
-            const ghOk = await loadHefteFromGitHub();
-            if (!ghOk) await loadHefteFallback();
             renderGallery();
         }
 
-        document.addEventListener('DOMContentLoaded', initGallery);
+        const LEVEL_RANK = { 'bronze': 1, 'silver': 2, 'gold': 3 };
+        function getMemberLevel() {
+            const token = localStorage.getItem('ss_member_token');
+            const bis = localStorage.getItem('ss_member_bis');
+            if (token && bis && new Date().toISOString().split('T')[0] <= bis) {
+                return localStorage.getItem('ss_member_level') || 'bronze';
+            }
+            return 'bronze';
+        }
+        function hasLevel(required) {
+            return (LEVEL_RANK[getMemberLevel()] || 0) >= (LEVEL_RANK[required || 'bronze'] || 1);
+        }
+        function showBookmark() {
+            if (!hasLevel('silver')) return;
+            try {
+                const bm = JSON.parse(localStorage.getItem('ss_bookmark'));
+                if (!bm) return;
+                document.getElementById('bookmark-text').textContent = `${bm.titel} – Seite ${bm.seite}`;
+                document.getElementById('bookmark-banner').style.display = 'block';
+            } catch(e) {}
+        }
+        function goToBookmark() {
+            try {
+                const bm = JSON.parse(localStorage.getItem('ss_bookmark'));
+                if (bm) window.location.href = `comic-reader.html?heft=${bm.heft}&seite=${bm.seite}`;
+            } catch(e) {}
+        }
+
+        document.addEventListener('DOMContentLoaded', () => { showBookmark(); initGallery(); });
 
         // NEU: Robuste Weiterleitungs-Funktion
         function openMembersPage() { window.location.href = 'members.html'; }
@@ -159,19 +165,15 @@
             backdrop-filter: blur(3px); pointer-events: none; /* Klicks gehen durch zum Bild */
         }
         .heft-title { font-weight: 900; font-size: 0.75rem; color: #fff; text-transform: uppercase; margin-top: 3px; line-height: 1.2; letter-spacing: 0.5px; }
+        .heft-teaser { font-size: 0.7rem; color: rgba(255,255,255,0.8); line-height: 1.4; margin-top: 6px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
         
-        .prog-bar { 
-            position: absolute; top: 10px; left: 10px; 
-            background: rgba(0,0,0,0.6); color: var(--gold); 
-            padding: 4px 7px; border-radius: 5px; 
-            font-size: 0.6rem; font-weight: 900; z-index: 5; 
-            backdrop-filter: blur(5px); border: 1px solid rgba(212, 175, 55, 0.3); pointer-events: none;
-        }
+        .prog-bar { display: none; }
     
-        .read-bar-wrap { position:absolute; bottom:0; left:0; right:0; height:4px; background:#1a1a1a; border-radius:0 0 8px 8px; overflow:hidden; }
-        .read-bar { height:100%; width:0%; transition:width 0.4s ease, background 0.4s ease; background:#333; }
+        .read-bar-wrap { position:absolute; bottom:0; left:0; right:0; height:18px; background:#1a1a1a; border-radius:0 0 8px 8px; overflow:hidden; display:flex; align-items:center; }
+        .read-bar { height:100%; width:0%; transition:width 0.4s ease, background 0.4s ease; background:#333; position:relative; }
         .read-bar.yellow { background:#d4af37; }
         .read-bar.green  { background:#4caf50; }
+        .read-bar-pct { position:absolute; right:0; top:0; bottom:0; display:flex; align-items:center; padding-right:6px; font-size:0.5rem; font-weight:900; color:#000; white-space:nowrap; }
 
     
         .heft-card.locked { cursor: default; }
@@ -214,7 +216,12 @@
 <body>
 
     <div class="header">
-        <h1>Snails<span>Stons</span></h1>
+        <h1>Snails <span>Stons</span></h1>
+    </div>
+
+    <div id="bookmark-banner" style="display:none; margin:0 15px 10px; padding:12px 16px; background:rgba(212,175,55,0.12); border:1px solid rgba(212,175,55,0.4); border-radius:12px; cursor:pointer;" onclick="goToBookmark()">
+        <div style="font-size:0.6rem;font-weight:900;color:#888;text-transform:uppercase;letter-spacing:1px;">📖 Weiterlesen</div>
+        <div id="bookmark-text" style="font-size:0.85rem;font-weight:700;color:var(--gold);margin-top:3px;"></div>
     </div>
 
     <div class="char-hub">
@@ -302,7 +309,8 @@
                             <div class="heft-title">${h.titel || 'STORY'}</div>
                         </div>
                     </div>
-                    <div class="read-bar-wrap"><div class="read-bar ${getReadProgress(id) >= 80 ? 'green' : getReadProgress(id) > 0 ? 'yellow' : ''}" style="width:${getReadProgress(id) > 0 ? getReadProgress(id) : 0}%"></div></div>
+                    ${(h.teaser || h.coverStory) ? `<div class="heft-teaser">${(h.teaser || h.coverStory).replace(/#\S+/g,'').trim()}</div>` : ''}
+                    <div class="read-bar-wrap"><div class="read-bar ${getReadProgress(id) >= 80 ? 'green' : getReadProgress(id) > 0 ? 'yellow' : ''}" style="width:${getReadProgress(id) > 0 ? getReadProgress(id) : 0}%">${getReadProgress(id) > 0 ? `<span class="read-bar-pct">${getReadProgress(id)}%</span>` : ''}</div></div>
                 </div>`;
         }
 
@@ -314,7 +322,7 @@
             let totalHefteFound = 0;
             let assignedHefteIds = new Set();
 
-            playlistMap.forEach(cat => {
+            window.playlistMap.forEach(cat => {
                 let catHtml = '';
                 let hasItems = false;
 
