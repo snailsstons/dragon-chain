@@ -5,7 +5,7 @@ hefte["0"] = {
   "video": "",
   "teaser": "Experimente. Kein Plan. Einfach ausprobieren.",
   "locDna": "",
-  "coverStory": "",
+  "coverStory": "Experimente. Kein Plan. Einfach ausprobieren.",
   "seiten": [
     {
       "nummer": 1,
@@ -44,6 +44,5 @@ hefte["0"] = {
       "members": false
     }
   ],
-  "members": true,
-  "level": "silver"
+  "members": false
 };
