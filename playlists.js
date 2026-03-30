@@ -1,26 +1,7 @@
 window.playlistMap = [
   {
-    "titel": "Gandia und Umgebung",
-    "hefte": [
-      18,
-      19,
-      20,
-      16,
-      17,
-      25
-    ]
-  },
-  {
-    "titel": "Valencia Tour",
-    "hefte": [
-      15
-    ]
-  },
-  {
     "titel": "Shorts",
-    "hefte": [
-      23
-    ]
+    "hefte": []
   },
   {
     "titel": "🖇️ Experimente, Schmierheft",
@@ -30,9 +11,7 @@ window.playlistMap = [
   },
   {
     "titel": "⭐ Members Only",
-    "hefte": [
-      0
-    ],
+    "hefte": [],
     "membersOnly": true
   }
 ];
