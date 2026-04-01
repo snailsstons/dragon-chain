@@ -69,6 +69,33 @@ hefte["0"] = {
           "caption": ""
         }
       ]
+    },
+    {
+      "nummer": 3,
+      "titel": "",
+      "akt": "",
+      "panels": [
+        {
+          "bild": "0_3_P1.jpg",
+          "format": "16:9",
+          "wide": true,
+          "tall": false,
+          "locDna": "",
+          "story": "",
+          "skript": "",
+          "caption": ""
+        },
+        {
+          "bild": "0_3_P2.jpg",
+          "format": "1:1",
+          "wide": false,
+          "tall": false,
+          "locDna": "",
+          "story": "",
+          "skript": "",
+          "caption": ""
+        }
+      ]
     }
   ],
   "members": false
