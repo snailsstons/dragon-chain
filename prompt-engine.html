@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>SnailsStons | Engine v5.2 (Modular)</title>
+    <title>SnailsStons | Engine v6.6 (Modular)</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     
     <script src="hefte.js"></script>
@@ -108,11 +108,57 @@
 
     <script>
         const dnaPool = {
-            'FELIX': { id: 1, desc: 'slender athletic snail, sandy beige skin. Huge open grin. Two large expressive cartoon eyes positioned DIRECTLY IN THE FACE – NOT on antenna tips, NOT floating, IN THE FACE. Antennas are plain stalks ending in small round smooth knobs – NO eyes on antennas. Warm brown classic spiral shell ON HIS BACK – always present, never missing. NO legs. Snail glide base only.' },
-            'STELLA': { id: 2, desc: 'slender elegant snail – NOT round, NOT chubby. Beige-cream skin, rosy cheeks, lashes. Red hibiscus flower at left antenna base. Dark brown-purple spiral shell on back. Dragons Chain Harness: thin BLACK NYLON STRAPS across chest, silver metal O-rings, delicate silver chains hanging. Lightweight fashion harness – NOT heavy chain armor. NOT bondage. NO legs. Snail glide base only.' },
-            'ARCHIE': { id: 3, desc: 'slender snail, scaly beige-olive skin, heavy-lidded smirk. Worn straw hat with dark band, both antennas through hat. Green martini in hand. His shell IS a full medieval CASTLE – stone walls, tower, battlements, terracotta roof – MOUNTED ON HIS BACK. NOT held in hand. NOT a separate object. On his back. Always. NO legs. Snail glide base only.' },
-            'LUNA': { id: 4, desc: 'slender delicate snail, warm beige skin, rosy cheeks, long lashes. Eyes peacefully CLOSED – always. Soft zen smile. Small compact dark spiral shell on back. Wide flat snail base resting LOW on ground – NOT lotus pose, NOT crossed legs, NOT human sitting. Hands folded in front, prayer pose. NO legs. SNAIL BASE ONLY.' },
-            'SALOME': { id: 6, desc: 'slender shell-less slug, NO shell on back. Warm beige smooth skin. Amber-gold round knob antenna tips. Smaragd-gold headband tiara. Thorn-collar necklace. One arm raised in elegant dance pose. NOT standing still. NO legs. Snail glide base only.' }
+            'FELIX': { id: 1, desc: `SNAIL CHARACTER – FELIX.
+BODY: Slender, athletic snail body. Sandy beige smooth skin. Rounded compact head.
+FACE: Large, wide-open cartoon eyes IN THE FACE – at mid-face level. Large forehead above, mouth and chin clearly below. Warm brown iris, white sclera. Big open grin showing teeth. Rosy cheeks.
+ANTENNAS: Two short antennas on top of head. Tips end in small round smooth KNOBS – NOT eyeballs, NOT spikes.
+SHELL: Classic warm brown spiral shell – MOUNTED ON HIS BACK. Always present. Never missing. Never held in hand.
+BODY BASE: Wide flat snail glide base – NO legs, NO feet, NO arms below body. He moves by gliding.
+HANDS: Small rounded hands grow directly from soft body sides – NO shoulders, NO elbows, NO human arm structure.
+SIGNATURE: Thumbs up pose, enormous enthusiastic grin, antennas pointing upward when excited.
+NEVER: No legs. No feet. No human torso. No standing posture.` },
+
+            'STELLA': { id: 2, desc: `SNAIL CHARACTER – STELLA.
+BODY: Slender, elegant snail – NOT round, NOT chubby, NOT plump. Fashion model proportions. Beige-cream smooth skin. Rosy cheeks, long lashes.
+FACE: Large expressive cartoon eyes IN THE FACE. Confident, slightly knowing expression. Long lashes. Rosy cheeks.
+ANTENNAS: Two elegant antennas. Small round smooth KNOB tips – NOT eyeballs. Red hibiscus flower attached at LEFT antenna base – always present.
+SHELL: Dark brown-purple classic spiral shell on her back.
+HARNESS: Dragons Chain Harness worn over body – thin BLACK NYLON STRAPS across chest, silver metal O-rings at center and sides, delicate silver chains hanging freely. Lightweight fashion harness – NOT heavy chain armor, NOT bondage gear.
+BODY BASE: Wide flat snail glide base – NO legs, NO feet. Hands from soft body sides – NO shoulders.
+SIGNATURE: Cocktail glass in hand, elegant upright posture, hibiscus always visible.
+NEVER: No legs. No feet. No round chubby body. No heavy armor look.` },
+
+            'ARCHIE': { id: 3, desc: `SNAIL CHARACTER – ARCHIE.
+BODY: Slender snail with elongated neck. Scaly, textured beige-olive skin. Heavy-lidded, calm expression with subtle smirk.
+FACE: Cartoon eyes IN THE FACE – half-lidded, world-weary but sharp. Subtle knowing smirk.
+ANTENNAS: Two antennas through the straw hat brim – both antenna tips visible above hat. Round smooth KNOB tips.
+HAT: Worn straw hat with dark band – sits on head, both antennas poke through it.
+SHELL: His shell IS a FULL MEDIEVAL CASTLE – stone walls, crenelated battlements, tower with terracotta roof, arched windows. MOUNTED ON HIS BACK as his shell. It REPLACES his shell entirely. NOT held in hand. NOT floating. On his back. Always.
+HAND: Green martini glass in hand – V-shaped glass, olive on toothpick.
+BODY BASE: Wide flat snail glide base – NO legs, NO feet.
+NEVER: No legs. No feet. No small shell. Castle always on back, never in hand.` },
+
+            'LUNA': { id: 4, desc: `SNAIL CHARACTER – LUNA.
+BODY: Slender, delicate snail. Warm beige smooth skin. Rosy cheeks, long lashes.
+FACE: Eyes CLOSED – always peacefully closed. Long lashes. Soft, gentle zen smile – never a wide grin.
+ANTENNAS: Two straight elegant antennas. Small round smooth KNOB tips – NOT eyeballs.
+SHELL: Small compact spiral shell, dark brown-black stripes – on her back, left side.
+BODY BASE: Wide flat snail base resting LOW and WIDE on ground – like a meditation cushion. NOT lotus pose. NOT crossed legs. NOT human seated position. The base spreads wide and flat.
+HANDS: Folded gently in front of body in prayer/meditation pose.
+SIGNATURE: Always eyes closed, always smiling softly, always still. She radiates calm.
+NEVER: No legs. No feet. No open eyes. No lotus pose. No standing. Base is always wide and flat on ground.` },
+
+            'SALOME': { id: 6, desc: `SNAIL CHARACTER – SALOME.
+BODY: Slender shell-less slug – NO shell on back at all. Warm beige smooth skin. Soft, flowing body.
+FACE: Cartoon eyes IN THE FACE. Half-closed, mysterious expression. Knowing smile.
+ANTENNAS: Two short antennas. Tips end in AMBER-GOLD round knobs – this gold color is her signature.
+HEAD ACCESSORY: Smaragd-gold headband tiara across her head.
+NECK: Thorn-collar necklace – dark thorn-shaped collar around neck.
+POSE: One arm raised in elegant dance pose – always in motion, never static.
+BODY BASE: Slender snail glide base – NO legs, NO feet. She glides and dances.
+SIGNATURE: No shell (this makes her unique), amber-gold antenna tips, always mid-movement.
+NEVER: No shell. No legs. No feet. No static standing pose.` },
+            'MRS_DRAG': { id: 7, desc: 'HUMAN WOMAN – NO snail features, NO antennas, NO shell, NO glide base. Athletic, tall and slender figure with feminine curves. Confident upright posture, professional presence. Hair: short voluminous bob with dense dark (dark brown to black) curls and waves. Face: striking features, defined cheekbones, expressive dark eyes with subtle eye makeup, bold classic red lipstick, a sovereign slightly knowing smile. OUTFIT – BASE LOOK: tight dark (black or deep brown) V-neck tank top, tight black leather leggings with realistic crease texture, classic black stiletto high heels. OUTFIT – HARNESS LOOK: complex chest harness from leather: leather choker necklace with silver O-ring, connected leather straps with rivets, prominent hanging silver chains and chainmail elements over chest and waist. ART STYLE: cartoon character in ultra-realistic 3D CGI render, Blue Sky Studios / Pixar quality – warm cartoon-cute proportions, hyper-detailed material textures (leather, metal, skin). Fits exactly into the SnailsStons universe energy.' }
         };
 
         let currentAR = "1:1";
@@ -143,7 +189,34 @@
 
             const cl = document.getElementById('crew-list');
             Object.keys(dnaPool).forEach(name => {
-                const b = document.createElement('div'); b.className = 'crew-btn'; b.id = `btn-${name}`; b.innerText = name; cl.appendChild(b);
+                const b = document.createElement('div');
+                b.className = 'crew-btn';
+                b.id = `btn-${name}`;
+                b.innerText = name;
+                if (name === 'MRS_DRAG') {
+                    b.style.borderColor = '#c0392b';
+                    b.style.color = '#c0392b';
+                    b.title = 'Human character – no snail features';
+                }
+                // ── Click handler ──
+                b._manualActive = false;
+                b.addEventListener('click', () => {
+                    b._manualActive = !b._manualActive;
+                    b.classList.toggle('active', b._manualActive);
+                    if (name === 'MRS_DRAG') {
+                        if (b._manualActive) {
+                            b.style.borderColor = '#fff';
+                            b.style.color = '#000';
+                            b.style.background = '#c0392b';
+                        } else {
+                            b.style.borderColor = '#c0392b';
+                            b.style.color = '#c0392b';
+                            b.style.background = '';
+                        }
+                    }
+                    runSync();
+                });
+                cl.appendChild(b);
             });
 
             // Dynamische Panel-Buttons generieren
@@ -341,9 +414,20 @@
             const full = (story + script + locDna + caption).toUpperCase();
             let team = []; Object.keys(dnaPool).forEach(name => {
                 const b = document.getElementById(`btn-${name}`);
-                if (b) {
-                    if (full.includes(name)) { b.classList.add('active'); team.push(name); } else b.classList.remove('active');
+                if (!b) return;
+                const inText = full.includes(name) || full.includes(name.replace('_', ' '));
+                const manual = b._manualActive === true;
+                const isActive = inText || manual;
+                b.classList.toggle('active', isActive);
+                // Restore MRS_DRAG styling
+                if (name === 'MRS_DRAG') {
+                    if (isActive) {
+                        b.style.borderColor = '#fff'; b.style.color = '#000'; b.style.background = '#c0392b';
+                    } else {
+                        b.style.borderColor = '#c0392b'; b.style.color = '#c0392b'; b.style.background = '';
+                    }
                 }
+                if (isActive) team.push(name);
             });
             const p = new URLSearchParams(window.location.search);
             const type = p.get('type') || 'panel';
@@ -358,7 +442,9 @@
 
                 res += `FORMAT: 9:16 vertical portrait – smartphone optimized. Comic book cover layout.\n\n`;
                 res += `Referenz Angaben zu den Charakteren sind unter "SnailsStons DNA" im Gedächtnis von Gemini hinterlegt.\n\n`;
-                team.forEach(name => res += `IMAGE ${dnaPool[name].id} = ${name} – character reference -> match exactly.\n`);
+                team.forEach(name => res += name === 'MRS_DRAG'
+                            ? `IMAGE ${dnaPool[name].id} = MRS_DRAG – human character reference -> match exactly. She is HUMAN, NOT a snail.\n`
+                            : `IMAGE ${dnaPool[name].id} = ${name} – character reference -> match exactly.\n`);
                 if (team.length > 0) res += `IMAGE 5 = LOCATION DNA.\n`;
                 res += `Do NOT invent characters. Do NOT invent locations.\n\n`;
 
@@ -367,8 +453,14 @@
                 res += `Cinematic comic book cover. Dramatic composition. Strong focal point.\n`;
                 res += `NOT a panel. NOT a scene. A COVER – one iconic image.\n\n`;
 
-                res += `ANATOMY RULES – apply to every character:\n`;
-                res += `NO legs, NO feet on any character. Snail glide base only.\n`;
+                const hasMrsDrag1 = team.includes('MRS_DRAG');
+                res += `ANATOMY RULES – apply to snail characters:\n`;
+                res += `NO legs, NO feet on snail characters. Snail glide base only.\n`;
+                res += `Expressive cartoon eyes IN the face – not on antenna tips.\n`;
+                res += `Antennas end in small round smooth KNOB tips only – NOT eye-balls.\n`;
+                if (hasMrsDrag1) {
+                    res += `EXCEPTION – MRS_DRAG: She is a HUMAN. She has two legs, stands in stiletto heels. Render her as a full human body. Do NOT give her snail features.\n`;
+                }
                 res += `Expressive cartoon eyes IN the face – not on antenna tips.\n`;
                 res += `Antennas end in small round smooth KNOB tips only.\n\n`;
 
@@ -393,18 +485,35 @@
 
             } else {
                 res += `Referenz Angaben zu den Charakteren sind unter "SnailsStons DNA" im Gedächtnis von Gemini hinterlegt.\n\n`;
-                team.forEach(name => res += `IMAGE ${dnaPool[name].id} = ${name} – character reference -> match exactly.\n`);
+                team.forEach(name => res += name === 'MRS_DRAG'
+                            ? `IMAGE ${dnaPool[name].id} = MRS_DRAG – human character reference -> match exactly. She is HUMAN, NOT a snail.\n`
+                            : `IMAGE ${dnaPool[name].id} = ${name} – character reference -> match exactly.\n`);
                 res += `IMAGE 5 = LOCATION DNA.\n`;
                 res += `Do NOT invent characters. Do NOT invent locations.\n\n`;
                 res += `TYPE: Ultra-realistic 3D CGI render, Blue Sky Studios style, hyper-detailed.\n`;
                 res += `FORMAT: ${currentAR} aspect ratio.\n`;
                 res += `CODE: ${code} – render small, top right corner of image.\n\n`;
-                res += `ANATOMY RULES – apply to every character without exception:\n`;
-                res += `NO legs, NO feet on any character. Snail glide base only.\n`;
+                const hasMrsDrag2 = team.includes('MRS_DRAG');
+                res += `ANATOMY RULES – apply to snail characters only:\n`;
+                res += `NO legs, NO feet on snail characters. Snail glide base only.\n`;
+                res += `Expressive cartoon eyes IN the face – not on antenna tips.\n`;
+                res += `Antennas end in small round smooth KNOB tips only – NOT eye-balls.\n`;
+                if (hasMrsDrag2) {
+                    res += `EXCEPTION – MRS_DRAG: She is a HUMAN. She has two legs, stands in stiletto heels. Render her as a full human body. Do NOT give her snail features, NO antennas, NO shell.\n`;
+                }
                 res += `Expressive cartoon eyes IN the face – not on antenna tips.\n`;
                 res += `Antennas end in small round smooth KNOB tips only – NOT eye-balls.\n\n`;
                 res += `SCENE:\n${story}\n\nLOCATION DNA:\n${locDna}\n\n`;
-                if (team.length > 0) { res += `CHARACTERS:\n`; team.forEach(name => res += `${name}: ${dnaPool[name].desc}\n`); res += `\n`; }
+                if (team.length > 0) {
+                    res += `CHARACTERS:\n`;
+                    team.forEach(name => {
+                        res += `${name}: ${dnaPool[name].desc}\n`;
+                        if (name === 'MRS_DRAG') {
+                            res += `MRS_DRAG ADDITIONAL RULES: She is a HUMAN – render her proportions as human, NOT as snail. She stands on two legs with high heels. She may interact with the snail characters naturally. She wears either BASE LOOK or HARNESS LOOK depending on scene context. HARNESS LOOK when scene mentions harness, jewelry, Dragons Chain, or fashion editorial. BASE LOOK for casual scenes. Always: red lipstick, black leather leggings, black stiletto heels.\n`;
+                        }
+                    });
+                    res += `\n`;
+                }
                 
                 if (script) {
                   res += `SPEECH BUBBLES – strict style rules:\n`;
