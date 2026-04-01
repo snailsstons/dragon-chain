@@ -1,6 +1,6 @@
 {
-  "name": "SnailsAdmin",
-  "short_name": "SnailsAdmin",
+  "name": "Dragons Admin",
+  "short_name": "DragonsAdmin",
   "description": "SnailsStons Studio – Admin",
   "start_url": "/admin-v1.html",
   "display": "standalone",
