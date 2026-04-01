@@ -39,6 +39,16 @@ hefte["0"] = {
           "caption": "",
           "members": false,
           "bonus": false
+        },
+        {
+          "bild": "0_1_P4.jpg",
+          "format": "1:1",
+          "wide": false,
+          "tall": false,
+          "locDna": "",
+          "story": "",
+          "skript": "",
+          "caption": ""
         }
       ],
       "members": false
@@ -70,6 +80,26 @@ hefte["0"] = {
         },
         {
           "bild": "0_2_P3.jpg",
+          "format": "1:1",
+          "wide": false,
+          "tall": false,
+          "locDna": "",
+          "story": "",
+          "skript": "",
+          "caption": ""
+        },
+        {
+          "bild": "0_2_P4.jpg",
+          "format": "1:1",
+          "wide": false,
+          "tall": false,
+          "locDna": "",
+          "story": "",
+          "skript": "",
+          "caption": ""
+        },
+        {
+          "bild": "0_2_P5.jpg",
           "format": "1:1",
           "wide": false,
           "tall": false,
