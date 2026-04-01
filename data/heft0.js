@@ -2,7 +2,7 @@ hefte["0"] = {
   "titel": "Schmierheft",
   "released": true,
   "cover": "cover.jpg",
-  "video": "",
+  "video": "0_2_video.mp4",
   "teaser": "Experimente. Kein Plan. Einfach ausprobieren.",
   "locDna": "",
   "coverStory": "Experimente. Kein Plan. Einfach ausprobieren.",
