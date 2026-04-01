@@ -42,6 +42,43 @@ hefte["0"] = {
         }
       ],
       "members": false
+    },
+    {
+      "nummer": 2,
+      "titel": "",
+      "akt": "",
+      "panels": [
+        {
+          "bild": "0_2_P1.jpg",
+          "format": "16:9",
+          "wide": true,
+          "tall": false,
+          "locDna": "",
+          "story": "",
+          "skript": "",
+          "caption": ""
+        },
+        {
+          "bild": "0_2_P2.jpg",
+          "format": "1:1",
+          "wide": false,
+          "tall": false,
+          "locDna": "",
+          "story": "",
+          "skript": "",
+          "caption": ""
+        },
+        {
+          "bild": "0_2_P3.jpg",
+          "format": "1:1",
+          "wide": false,
+          "tall": false,
+          "locDna": "",
+          "story": "",
+          "skript": "",
+          "caption": ""
+        }
+      ]
     }
   ],
   "members": false
